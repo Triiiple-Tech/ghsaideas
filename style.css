@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #fff;
+  font-family: 'Permanent Marker', cursive, sans-serif;
+  overflow-x: hidden;
+}
+
+#hero-landing {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#galaxy-canvas {
+  position: absolute;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 1;
+  display: block;
+  background: transparent;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+  pointer-events: none;
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  margin-bottom: 2.5rem;
+  font-size: 1.2rem;
+  pointer-events: auto;
+}
+
+#logo-main, #logo-mosaic {
+  height: 80px;
+  width: auto;
+  filter: drop-shadow(0 0 16px #fff8) brightness(1.2);
+  transition: transform 0.5s cubic-bezier(.4,2,.6,1), filter 0.5s;
+}
+
+.presented-by {
+  color: #fff;
+  font-size: 1.1rem;
+  opacity: 0.7;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+#hero-headline {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3.2rem;
+  color: #fff;
+  margin: 0 0 1.2rem 0;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 24px #fff3, 0 0 2px #fff;
+  opacity: 0;
+}
+
+#hero-subheadline {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0 0 2.5rem 0;
+  opacity: 0;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+#ignite-btn {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2rem;
+  background: linear-gradient(90deg, #fff 0%, #ffb300 100%);
+  color: #000;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.7em 2.5em;
+  box-shadow: 0 2px 24px #fff5, 0 0 2px #fff;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.5s, box-shadow 0.2s;
+  pointer-events: auto;
+}
+#ignite-btn.flicker {
+  animation: ignite-flicker 1.2s infinite alternate;
+}
+@keyframes ignite-flicker {
+  0% { box-shadow: 0 2px 24px #fff5, 0 0 2px #fff; }
+  100% { box-shadow: 0 0 48px #ffb300cc, 0 0 8px #fff; }
+}
+
+.corner-logo {
+  position: fixed;
+  left: 2vw;
+  bottom: 2vw;
+  width: 48px;
+  height: 48px;
+  opacity: 0;
+  z-index: 10;
+  transition: opacity 0.8s;
+  filter: drop-shadow(0 0 8px #fff8);
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  #logo-main, #logo-mosaic { height: 48px; }
+  #hero-headline { font-size: 2rem; }
+  #hero-subheadline { font-size: 1.1rem; }
+  .logos { gap: 1vw; }
+}

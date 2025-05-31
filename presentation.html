@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSHA 2025: Ignite Your Performance</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Times+New+Roman&display=swap');
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #DDDDDD; /* Primary BG */
+            color: #000000; /* Text */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .slide {
+            width: 100%;
+            min-height: 100vh; /* Use min-height to ensure it covers viewport but can expand */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px; /* Increased padding for spaciousness */
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden; /* Prevents accent bars from causing scroll on some zoom levels */
+        }
+
+        .slide-content { /* Wrapper for content to control max-width */
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .slide h1, .slide h2, .slide .title {
+            font-family: 'Permanent Marker', cursive;
+            margin-top: 0;
+            margin-bottom: 25px; /* Increased margin */
+            line-height: 1.3;
+        }
+        .slide h1 {
+            font-size: 3em; /* Larger for main title */
+        }
+        .slide h2, .slide .title {
+            font-size: 2.5em;
+        }
+
+        .slide p, .slide li {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.3em; /* Slightly larger body text */
+            line-height: 1.7; /* Increased line height */
+            margin-bottom: 20px; /* Spacing for paragraphs */
+            max-width: 700px; /* Control line length for readability */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .slide ul {
+            list-style-position: inside;
+            text-align: left;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .slide li {
+            margin-bottom: 10px; /* Spacing for list items */
+        }
+
+        .accent1 { color: #0C5964; }
+        .accent2 { color: #9D531F; }
+        .accent3 { color: #000000; }
+        .accent4 { color: #9F32E9; }
+
+        .bg-primary { background-color: #DDDDDD; }
+        .bg-secondary { background-color: #FFFFFF; }
+
+        .accent-bar-teal, .accent-bar-teal-top, .accent-bar-teal-bottom {
+            width: 100%;
+            height: 15px; /* Slightly thicker bar */
+            background-color: #0C5964; /* Accent 1 */
+            position: absolute;
+            left: 0;
+        }
+        .accent-bar-teal-top { top: 0; }
+        .accent-bar-teal-bottom { bottom: 0; }
+
+
+        .accent-bar-copper, .accent-bar-copper-top, .accent-bar-copper-bottom {
+            width: 100%;
+            height: 15px; /* Slightly thicker bar */
+            background-color: #9D531F; /* Accent 2 */
+            position: absolute;
+            left: 0;
+        }
+        .accent-bar-copper-top { top: 0; }
+        .accent-bar-copper-bottom { bottom: 0; }
+
+
+        .accent-line-copper, .accent-line-copper-center {
+            width: 70%;
+            height: 8px; /* Thicker line */
+            background-color: #9D531F; /* Accent 2 */
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .accent-line-copper-center {
+            margin: 25px auto 10px auto;
+        }
+
+
+        .logo-placeholder {
+            width: 180px; /* Slightly larger */
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            font-family: 'Times New Roman', Times, serif;
+            border: 2px solid #000000; /* Accent 3 */
+            box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+        }
+
+        .visual-placeholder {
+            width: 85%;
+            max-width: 650px;
+            height: 350px;
+            background-color: #E9E9E9; /* Lighter than primary BG for contrast */
+            border: 3px solid; /* Border color will be set by accent classes or default */
+            border-color: #0C5964; /* Default Accent 1 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 25px;
+            font-family: 'Times New Roman', Times, serif;
+            color: #333333;
+            font-style: italic;
+            font-size: 1.1em;
+            padding: 20px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.15);
+            border-radius: 8px; /* Subtle rounded corners */
+        }
+        .visual-placeholder-text {
+            margin-bottom: 10px;
+        }
+        .visual-placeholder-details {
+            font-size: 0.8em;
+            color: #555;
+        }
+
+        .footer-text {
+            font-size: 0.9em;
+            margin-top: 15px;
+            font-style: italic;
+            color: #333333;
+        }
+        .link-placeholder {
+            font-size: 1em;
+            color: #0C5964; /* Accent 1 */
+            text-decoration: underline;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* Slide specific styles */
+        #slide1 {
+            /* More subtle Gemini-inspired overlay */
+            background:
+                radial-gradient(ellipse at 70% 80%, rgba(12, 89, 100, 0.15), transparent 50%), /* Tealish accent */
+                radial-gradient(ellipse at 30% 40%, rgba(157, 83, 31, 0.1), transparent 50%), /* Copperish accent */
+                radial-gradient(ellipse at 50% 50%, rgba(159, 50, 233, 0.05), transparent 60%), /* Purpleish accent */
+                #DDDDDD; /* Primary BG */
+        }
+        #slide1 .logo-placeholder {
+             background-color: #0C5964; /* Accent 1 */
+             color: #FFFFFF;
+             border-color: #0C5964;
+        }
+        /* Slide 2 uses .accent-bar-teal-top and .accent-bar-copper-bottom by default */
+
+        #slide3 .visual-placeholder {
+            border-color: #9F32E9; /* Accent 4 */
+            background: linear-gradient(135deg, rgba(159, 50, 233, 0.05), rgba(12, 89, 100, 0.05));
+        }
+        /* Slide 4 is .bg-secondary (white) */
+         #slide4 .visual-placeholder {
+            border-color: #0C5964; /* Accent 1 */
+            background-color: #f0f8ff; /* Alice blue - very light for white BG */
+        }
+        /* Slide 5 uses .accent-bar-teal-bottom by default */
+
+        /* Slide 6 uses .accent-line-copper-center by default */
+
+        #slide7 .visual-placeholder {
+            border-color: #9F32E9; /* Accent 4 */
+            background: radial-gradient(ellipse at center, rgba(159, 50, 233, 0.1), transparent 70%), #E9E9E9;
+        }
+        #slide8 .visual-placeholder {
+            border-color: #9D531F; /* Accent 2 */
+        }
+
+        /* Slide 10 is .bg-secondary (white) and uses .accent-bar-teal-bottom */
+        #slide10 .logo-placeholder { /* Example for a different logo style on this slide */
+            background-color: #FFFFFF;
+            color: #0C5964;
+            border: 2px solid #0C5964;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1: COVER -->
+    <div class="slide bg-primary" id="slide1">
+        <div class="slide-content">
+            <h1>GSHA 2025: Ignite Your Performance</h1>
+            <p>Experiential Concepts by [Your Name]</p>
+            <p class="footer-text">“Full write-ups linked on each idea slide”</p>
+            <div class="logo-placeholder">Gemini x Google</div>
+        </div>
+    </div>
+
+    <!-- Slide 2: CONTEXT & OBJECTIVES -->
+    <div class="slide bg-primary" id="slide2">
+        <div class="accent-bar-teal-top"></div>
+        <div class="slide-content">
+            <h2>Ignite. Celebrate. Connect.</h2>
+            <p>“GSHA isn’t just an award show—it’s a showcase for marketers who push boundaries, powered by the full spectacle of Google AI.”</p>
+            <p>“Objective: Make every guest the star, every moment unmissable, and every story a flex—online and in the room.”</p>
+        </div>
+        <div class="accent-bar-copper-bottom"></div>
+    </div>
+
+    <!-- Slide 3: DATA INFERNO -->
+    <div class="slide bg-primary" id="slide3">
+        <div class="slide-content">
+            <h2 class="title accent4">Gemini Data Inferno</h2>
+            <p>A fully immersive, AI-driven spectacle where every guest’s data and presence fuel a live inferno of visuals, music, and narration. Every moment—every “spark”—is celebrated, transforming the entire room into a living, breathing tribute to innovation.</p>
+            <p class="link-placeholder">[Full idea → link]</p>
+            <div class="visual-placeholder">
+                <span class="visual-placeholder-text">Visual: 360° Event Room Mockup</span>
+                <span class="visual-placeholder-details">Fiery data overlays, dynamic lighting. Accents: #9F32E9, #0C5964</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: GEMINI LABYRINTH -->
+    <div class="slide bg-secondary" id="slide4">
+        <div class="slide-content">
+            <h2 class="title">Gemini Labyrinth</h2>
+            <p>Guests journey through an interactive, AI-powered maze, unlocking surprises, challenges, and collaborative moments at every turn. Paths converge at the heart of the labyrinth for a reveal where every guest’s journey becomes part of the show.</p>
+            <p class="link-placeholder">[Full idea → link]</p>
+            <div class="visual-placeholder">
+                <span class="visual-placeholder-text">Visual: Stylized Maze Concept</span>
+                <span class="visual-placeholder-details">Floorplan or corridor render. BG: #FFFFFF with accent color lines.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: SPARK INDEX -->
+    <div class="slide bg-primary" id="slide5">
+        <div class="slide-content">
+            <h2 class="title">Gemini Spark Index</h2>
+            <p>A live, ever-shifting leaderboard that gamifies creativity, connection, and bold moves throughout the night. Everyone gets in on the action—earning real-time, Google-official accolades and social bragging rights that last far beyond the event.</p>
+            <p class="link-placeholder">[Full idea → link]</p>
+            <div class="visual-placeholder">
+                <span class="visual-placeholder-text">Visual: Leaderboard & Badges</span>
+                <span class="visual-placeholder-details">Playful graphics, animated elements.</span>
+            </div>
+        </div>
+        <div class="accent-bar-teal-bottom"></div>
+    </div>
+
+    <!-- Slide 6: FIRESTARTER -->
+    <div class="slide bg-primary" id="slide6">
+        <div class="slide-content">
+            <h2 class="title">Gemini FireStarter: Chaos of Curiosity</h2>
+            <p>This is no sit-back-and-watch awards show. It’s a creative riot—flash mobs, improv acts, carnival chaos, and meme drops. Ego gets checked at the door; everyone becomes part of the story, with Gemini orchestrating the night’s wildest moments.</p>
+            <p class="link-placeholder">[Full idea → link]</p>
+            <div class="visual-placeholder">
+                <span class="visual-placeholder-text">Visual: Event Atmosphere Mockup</span>
+                <span class="visual-placeholder-details">Wild entry, carnival games, Query Tornado concept.</span>
+            </div>
+            <div class="accent-line-copper-center"></div>
+        </div>
+    </div>
+
+    <!-- Slide 7: GEMINI CONSTELLATION -->
+    <div class="slide bg-primary" id="slide7">
+        <div class="slide-content">
+            <h2 class="title accent4">Gemini Constellation: The Night We Lit Up the Sky</h2>
+            <p>The entire event unfolds under a living digital galaxy. Every guest’s impact, every new connection, every “aha” moment lights up the sky in real time. The night ends with a constellation made by—and for—the whole room.</p>
+            <p class="link-placeholder">[Full idea → link]</p>
+            <div class="visual-placeholder">
+                <span class="visual-placeholder-text">Visual: Digital Galaxy Experience</span>
+                <span class="visual-placeholder-details">Animated starfield, constellation mapping, AR badge overlay. Accent: #9F32E9.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: TECH & EXPERIENCE LAYERS -->
+    <div class="slide bg-primary" id="slide8">
+        <div class="slide-content">
+            <h2>How It All Connects</h2>
+            <p>“Gemini AI is the engine: live data, narration, social integration, and personalized moments.”</p>
+            <p>“Every guest leaves with a digital artifact—performance portrait, star map, or Spark Index badge.”</p>
+            <div class="visual-placeholder">
+                <span class="visual-placeholder-text">Visual: AI Integration Flowchart</span>
+                <span class="visual-placeholder-details">Diagram showing touchpoints, data flow. Uses accent colors.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: WHY THIS WINS / OUTCOMES -->
+    <div class="slide bg-primary" id="slide9">
+        <div class="slide-content">
+            <h2>From Spectator to Story</h2>
+            <ul>
+                <li>Google AI at the heart of culture, not just tech</li>
+                <li>Every attendee feels like a headline</li>
+                <li>Social FOMO is baked in—max shareability, lasting digital legacy</li>
+            </ul>
+            <p>“Only Google could pull this off—Mosaic brings it to life.”</p>
+            <div class="visual-placeholder">
+                <span class="visual-placeholder-text">Visual: Impact Showcase</span>
+                <span class="visual-placeholder-details">Branded quote, recap mockup, or highlight reel thumbnail.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: NEXT STEPS / CONTACT -->
+    <div class="slide bg-secondary" id="slide10">
+        <div class="slide-content">
+            <h2 class="title">Let’s Ignite GSHA 2025</h2>
+            <p>Contact info, your branding footer, and Mosaic/Google lockup</p>
+            <div class="logo-placeholder" style="margin-top: 20px; margin-bottom: 40px;">Mosaic/Google Lockup</div>
+        </div>
+        <div class="accent-bar-teal-bottom"></div>
+    </div>
+
+</body>
+</html>
